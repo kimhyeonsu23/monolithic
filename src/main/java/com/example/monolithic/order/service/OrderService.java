@@ -24,7 +24,6 @@ public class OrderService {
     private final OrderRepository orderRepository ;
     private final UserRepository userRepository ;
     private final ProductRepository productRepository ;
-    private final OrderResponseDTO orderResponseDTO ;
 
     public OrderResponseDTO orderCreate(OrderRequestDTO request) {
 
@@ -49,9 +48,12 @@ public class OrderService {
             product.updateStockQty(request.getQty()) ;
         }
         OrderEntity order = OrderEntity.builder()
+                                .qty(qty)
+                                .product(product)
+                                .user(user)
                                 .build() ;
 
-        return orderResponseDTO.fromEntity(orderRepository.save(order)) ;
+        return OrderResponseDTO.fromEntity(orderRepository.save(order)) ;
 
     }
 

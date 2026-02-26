@@ -20,7 +20,7 @@ public class OrderResponseDTO {
     private Integer qty ;
     private OrderStatus orderStatus ;
 
-    public OrderResponseDTO fromEntity(OrderEntity entity) {
+    public static OrderResponseDTO fromEntity(OrderEntity entity) {
         return OrderResponseDTO.builder()
                 .id(entity.getId())
                 .qty(entity.getQty())

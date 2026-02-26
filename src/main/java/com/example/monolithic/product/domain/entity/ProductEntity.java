@@ -35,7 +35,7 @@ public class ProductEntity extends BaseTimeEntity {
     @JoinColumn(name = "user_id")
     private UserEntity user ;
 
-    public void updateStockty (int stockQty) {
+public void updateStockQty (int stockQty) {
         this.stockQty = this.stockQty - stockQty ;
     }
     
